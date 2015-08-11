@@ -21,4 +21,5 @@ var Schema = new mongoose.Schema({
     owner_id: { type: mongoose.Schema.Types.ObjectId, ref: 'userSchema' }
 });
 
+
 module.exports = mongoose.model('campaign', Schema);
