@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var chalk = require('chalk');
 var Promise = require('bluebird');
 var connectToDb = require('./../server/db');
-var campaign = Promise.promisifyAll(mongoose.model('campaign'));
+var campaign = Promise.promisifyAll(mongoose.model('Campaign'));
 
 var seedCampaigns = function() {
     var campaigns = [
