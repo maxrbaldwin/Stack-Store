@@ -2,6 +2,7 @@
 var router = require('express').Router();
 var mongoose = require('mongoose');
 var CampaignModel = mongoose.model('Campaign');
+var bids = mongoose.model('bid');
 var fs = require('fs');
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-west-2';
@@ -22,7 +23,7 @@ router.get('/',function(req,res, next){
 })
 
 router.get('/:id',function(req,res, next){
-	CampaignModel.findById({_id:req.params.id}).then(function(campaign){
+	CampaignModel.findById({_id:req.params.id}).populate('bids').then(function(campaign){
 		res.json(campaign);
 	})
 })

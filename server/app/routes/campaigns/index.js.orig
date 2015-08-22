@@ -2,11 +2,15 @@
 var router = require('express').Router();
 var mongoose = require('mongoose');
 var CampaignModel = mongoose.model('Campaign');
+<<<<<<< HEAD
+var bids = mongoose.model('bid');
+=======
 var fs = require('fs');
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-west-2';
 
 //var multipart = require('connect-multiparty');
+>>>>>>> 0c7aca23d15043103d3d33fade99166b3514a8b7
 module.exports = router;
 
 //Amazon S3 credentials
@@ -22,20 +26,13 @@ router.get('/',function(req,res, next){
 })
 
 router.get('/:id',function(req,res, next){
-	CampaignModel.findById({_id:req.params.id}).then(function(campaign){
+	CampaignModel.findById({_id:req.params.id}).populate('bids').then(function(campaign){
 		res.json(campaign);
 	})
 })
 
 
 router.post('/new', function(req, res, next){
-    console.log(req.body, "reqbody");
-    CampaignModel.create(req.body, function(err, campaign){
-        if (err) return handleError(err);
-        res.json(req.body)
-    })
-
-<<<<<<< HEAD
 	req.body.owner_id = ObjectId(req.body.owner_id);
 
 	return Campaign.create(req.body).then(function(campaign){
@@ -46,10 +43,8 @@ router.post('/new', function(req, res, next){
             res.json(campaign);
 		})
 	})
-
-=======
 })
->>>>>>> 88ce3c7861c3a863b157aa42d626cd5b4bb4a84b
+
 
 router.post('/image',function(req, res, next){
 

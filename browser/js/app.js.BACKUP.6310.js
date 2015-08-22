@@ -1,7 +1,10 @@
 /// <reference path="../../typings/angularjs/angular.d.ts"/>
 'use strict';
+<<<<<<< HEAD
 window.app = angular.module('FullstackGeneratedApp', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt',"highcharts-ng"]);
+=======
 window.app = angular.module('FullstackGeneratedApp', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt','ngFileUpload']);
+>>>>>>> 0c7aca23d15043103d3d33fade99166b3514a8b7
 
 app.config(function ($urlRouterProvider, $locationProvider) {
     // This turns off hashbang urls (/#about) and changes it to something normal (/about)
